@@ -2,4 +2,9 @@
 .article4-cont0{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 30px;
+  transition: text-shadow 0.2s ease-in-out;
+}
+
+.article4-cont0:hover{
+  text-shadow: 5px 10px 16px rgba(255, 255, 255, 0.9);
 }

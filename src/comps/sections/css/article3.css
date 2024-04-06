@@ -7,4 +7,9 @@
   overflow: hidden;
   border-radius: 10px;
   flex-shrink: 0;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.article3-cont0:hover{
+  box-shadow: 5px 10px 16px rgba(255, 255, 255, 0.9);
 }

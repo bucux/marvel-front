@@ -5,6 +5,7 @@ import { create } from 'zustand'
 type TnumStates = { // ce type ne sert qu'ici, et n'a pas besoin d'être exporté
   count: number; // le nombre de comics dans la page comics ou bien le nombre de characters dans la page characters
   slider1 : number; // la position du curseur du Slider1
+  serieCount: number; // le nombre de comics dans la serie
 }
 
 type TnumFuncs = {
@@ -15,6 +16,7 @@ type TnumFuncs = {
 const etatOrigine: TnumStates = {
   count: 0,
   slider1: 1, // page 1 par défaut
+  serieCount: 0,
 }
 
 export const useStoreNum = create<TnumStates & TnumFuncs>((set) => ({

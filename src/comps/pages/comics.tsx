@@ -6,12 +6,11 @@ import { getAxios } from '../../libs/axios';
 import { useStoreStr } from '../../stores/storeStr';
 import { useStoreObj } from '../../stores/storeObj';
 import { useStoreNum } from '../../stores/storeNum';
-import Footer1 from '../sections/footer1';
 import { Tcomic } from '../../libs/types';
-import Article4bis from '../sections/article4bis';
-import Article1 from '../sections/article1';
-import { longuestStart, nbComics } from '../../libs/funcs';
+import { longuestStart } from '../../libs/funcs';
 import Header3 from '../sections/header3';
+import Serie1 from '../sections/serie1';
+import Footer1 from '../sections/footer1';
 
 export default function Comics() {
 
@@ -21,11 +20,7 @@ export default function Comics() {
   const searchString = useStoreStr(state=>state.searchString)
   const comics = useStoreObj(state=>state.comics)
   const [series, setSeries] = useState<{nom : string, serie : Tcomic[]}[]>([]) // tableau de séries // une série est elle même un tableau de comics
-  const [famous, setFamous] = useState<Tcomic[]>([]) // les books avec image valide
-  const [lesserKnown, setLesserKnown] = useState<Tcomic[]>([]) // les books sans image
   const slider1 = useStoreNum(state=>state.slider1)
-  
-  const addLesser = (comic : Tcomic) => { setLesserKnown([...lesserKnown, comic]) } // ajoute à la liste des comics méconnus ceux qui ont une url d'image, mais dont l'url se révèle erronée au chargement
 
   const serieInit = () => { // réunit tous les comics consécutifs dont les 5 premières lettres du title sont identiques
     const datas = comics!.results
@@ -42,7 +37,7 @@ export default function Comics() {
         five = newFive // mettre à jour la référence five
       }
     }
-    console.log(tab)
+    if(tab.length === 0 && tab2.length > 0){tab.push({nom : longuestStart(tab2), serie : tab2})} // si jamais les 100 books font partie de la même série
     setSeries(tab)
   } 
 
@@ -61,9 +56,6 @@ export default function Comics() {
     if(comics && comics.count > 0){ 
       setNum('count', comics.count)
       serieInit()
-      console.log()
-      setFamous(comics.results.filter(comic=>comic.thumbnail.path && !comic.thumbnail.path.includes('not_available')))
-      setLesserKnown(comics.results.filter(comic=>comic.thumbnail.path && comic.thumbnail.path.includes('not_available')))
     }
   }, [comics])
 
@@ -72,19 +64,11 @@ export default function Comics() {
       <div className='comics-cont0'>
         <Header3/>
         <div className='comics-cont1'>
-          {famous.map((comic : Tcomic) => <Article1 key={comic._id} comic={comic} addLesser={addLesser}/>)}
+          {series.map((serie, index)=><Serie1 key={index} serieDatas={serie}/>)}
         </div>
-        {lesserKnown.length > 0
-         ?
-          <div className='comics-cont2'>
-            <p className='mini'>{`And also ${nbComics(lesserKnown.length)} without picture :`}</p>
-          </div>
-          : null
-        }
-        <div className='comics-cont3'>
-          {lesserKnown.map((comic : Tcomic) => <Article4bis key={comic._id} comic={comic}/>)}
+        <div className='comics-cont2'>
+          <Footer1/>
         </div>
-        <Footer1/>
       </div>
     )
   } else { return null  }

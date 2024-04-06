@@ -1,0 +1,9 @@
+
+
+.article1-cont0{
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.article1-cont0:hover {
+  box-shadow: 5px 10px 16px rgba(255, 255, 255, 0.9);
+}

@@ -12,7 +12,13 @@
   width: 200px;
   overflow: hidden;
   border-radius: 10px;
+  transition: box-shadow 0.2s ease-in-out;
 }
+
+.article2-cont1:hover {
+  box-shadow: 5px 10px 16px rgba(255, 255, 255, 0.9);
+}
+
 
 .article2-cont2{
   width: 200px;
