@@ -1,0 +1,56 @@
+
+:root{
+  --green: #2BAEB7;
+  --greyclair: #F5F6F7;
+  --greytraitclair: rgb(207, 207, 207);
+  --greytexte: rgb(160, 160, 160);
+  --greytextefonce: rgb(100, 100, 100);
+  --noirtransparent: rgba(0, 0, 0, 0.8);
+  --red: #EC1D24;
+  --redtransparent: rgba(255,0,0,0.6);
+}
+
+img {
+  object-fit: cover;
+}
+
+html, body, #root{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+/* Stylise la scrollbar (le contrôle de défilement lui-même) */
+::-webkit-scrollbar {
+  width: 8px; /* Hauteur de la scrollbar (pour le défilement horizontal) */
+  height: 8px; /* Hauteur de la scrollbar (pour le défilement horizontal) */
+}
+
+/* Stylise le track de la scrollbar (la piste sur laquelle la barre de défilement se déplace) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Couleur de fond du track */
+}
+
+/* Stylise le thumb de la scrollbar (la partie de la barre que l'on peut déplacer) */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #555; /* Couleur de fond du thumb au survol */
+}
+
+/* Ajoute un effet au survol sur le thumb de la scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red); /* Couleur de fond du thumb */
+}

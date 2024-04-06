@@ -1,0 +1,32 @@
+
+
+.article2-cont0{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+  position: relative;
+}
+
+.article2-cont1{
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.article2-cont2{
+  width: 200px;
+  position: absolute;
+  top: 160px;
+  display: flex;
+  justify-content: center;
+}
+
+.article2-cont2 > p {
+  color: white;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--red);
+  padding: 5px;
+  border-radius: 5px;
+}

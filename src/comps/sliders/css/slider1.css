@@ -1,0 +1,46 @@
+
+.slider1-cont0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.slider1-cont0 > p {
+  font-size: 12px;
+}
+
+.slider1-cont0 > input {
+  -webkit-appearance: none; /* Override de l'apparence par défaut pour WebKit/Blink */
+  appearance: none;
+  outline: none; /* Supprime le contour par défaut lors de la sélection */
+  opacity: 0.7; /* Rend le slider semi-transparent */
+  transition: opacity 0.2s; /* Animation de l'opacité au survol */
+  background: transparent;
+  width: 100%;
+}
+
+/* Style du curseur du slider */
+.slider1-cont0 > input::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override de l'apparence par défaut pour WebKit/Blink */
+  appearance: none;
+  width: 15px; /* Largeur du curseur */
+  height: 12px; /* Hauteur du curseur */
+  background: var(--red); /* Couleur de fond du curseur */
+  cursor: pointer; /* Curseur en forme de pointeur */
+  border-radius: 5px; /* Rend le curseur circulaire */
+}
+
+.slider1-cont0 > input::-moz-range-thumb {
+  width: 15px; /* Largeur du curseur */
+  height: 12px; /* Hauteur du curseur */
+  background: var(--red); /* Couleur de fond du curseur */
+  cursor: pointer; /* Curseur en forme de pointeur */
+  border-radius: 5px; /* Rend le curseur circulaire */
+}
+
+/* Style appliqué au slider au survol */
+.slider1-cont0 > input:hover {
+  opacity: 1; /* Rend le slider complètement opaque lors du survol */
+}
