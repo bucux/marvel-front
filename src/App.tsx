@@ -10,9 +10,8 @@ import Comic from "./comps/pages/comic";
 import Characters from "./comps/pages/characters";
 import Character from "./comps/pages/character";
 import Favorites from "./comps/pages/favorites";
-import Favorite from "./comps/pages/favorite";
 
-function App() {
+function App() { // les services (handshake, local storage, variables d'environnemnt) sont assurés par le composant <Middle/> qui est un middleware réactif
   
   const isLoginOpened = useStoreBool(state=>state.isLoginOpened)
   const isLogoutOpened = useStoreBool(state=>state.isLogoutOpened)
@@ -29,7 +28,6 @@ function App() {
         <Route path="/characters" element={<Characters />} />
         <Route path="/character" element={<Character />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/favorite" element={<Favorite />} />
         <Route path="*" element={<Navigate to="/characters" />} />
       </Routes>
       {isLoginOpened ? <Login/> : null}

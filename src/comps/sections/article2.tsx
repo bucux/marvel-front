@@ -5,6 +5,7 @@ import './css/article2.css'
 import { useStoreObj } from '../../stores/storeObj'
 import { useStoreBool } from '../../stores/storeBool'
 import { useState } from 'react'
+import Button3 from '../buttons/button3'
 
 export default function Article2({character, addLesser} : {character : Tcharacter, addLesser : (hero : Tcharacter)=>void}) { // sert dans le composant Characters
 
@@ -33,6 +34,9 @@ export default function Article2({character, addLesser} : {character : Tcharacte
         </div>
         <div className='article2-cont2'>
           <p>{character.name}</p>
+        </div>
+        <div className='article2-cont3'>
+          <Button3/>
         </div>
       </div>
     )

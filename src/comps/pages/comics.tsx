@@ -42,13 +42,16 @@ export default function Comics() {
   } 
 
   useEffect(()=>{
+    setStr('page', 'comics')
+  }, [])
+
+  useEffect(()=>{
     const fetchComics = async () => {
       let suffixe = 'comics?limit=100&skip=' + ((slider1 - 1) * 100) + '&'
       if(searchString){suffixe += ('title=' + searchString + '&')}
       const datas = await getAxios(suffixe)
       if(datas){ setObj('comics', datas)}
     }
-    setStr('page', 'comics')
     fetchComics() 
   }, [searchString, slider1])
   

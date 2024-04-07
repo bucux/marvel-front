@@ -24,6 +24,7 @@ export const getAxios = async(suffixe : string) => {
 
 export const postAxios = async(suffixe : string, body: {[key: string] : string | undefined}) => { // post simple avec un body de keys/values 
   try{
+    console.log(Gstr.urlServer + suffixe)
     const datas = await axios.post(
       Gstr.urlServer + suffixe, 
       body,

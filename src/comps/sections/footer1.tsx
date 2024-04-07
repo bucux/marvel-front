@@ -10,6 +10,7 @@ export default function Footer1() {
   return (
     <div className='footer1-cont0'>
       <Slider1 max={Math.floor(count/100) + (count % 100 > 0 ? 1 : 0)}/>
+      <p>...made with <span>love</span>, by Ubucux</p>
     </div>
   )
 }

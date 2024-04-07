@@ -26,13 +26,16 @@ export default function Characters() {
   const addLesser = (hero : Tcharacter) => { setLesserKnown([...lesserKnown, hero]) } // ajoute à la liste des héros méconnus ceux qui ont une url d'image, mais dont l'url se révèle erronée au chargement
 
   useEffect(()=>{
+    setStr('page', 'characters')
+  }, [])
+
+  useEffect(()=>{
     const fetchCharacters = async () => {
       let suffixe = 'characters?limit=100&skip=' + ((slider1 - 1) * 100) + '&'
       if(searchString){suffixe += ('name=' + searchString + '&')}
       const datas = await getAxios(suffixe)
       if(datas){ setObj('characters', datas)}
     }
-    setStr('page', 'characters')
     fetchCharacters() 
   }, [searchString, slider1])
   

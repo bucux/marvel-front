@@ -9,7 +9,8 @@ export default function Button1({name} : {name: string}) {
   const setStr = useStoreStr(state=>state.setStr)
   const page = useStoreStr(state=>state.page)
 
-  const clic = () => { navigate(`/${name}`)}
+  const clic = () => { navigate(`/${name}`) }
+
   const mouseEnter = () => { setStr('pageHover', name) }
   const mouseLeave = () => { setStr('pageHover', '') }
 

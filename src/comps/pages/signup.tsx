@@ -34,9 +34,9 @@ export default function Signup() {
         setStr('token', data.token)
         setBool('isSignupOpened', false)
       } 
-      else {titre.current!.textContent = "Inscription invalide"}
+      else {titre.current!.textContent = "Invalid credential"}
     }else{
-      titre.current!.textContent = "Tous les champs sont requis"
+      titre.current!.textContent = "INCOMPLETE !"
     }
   }
 
