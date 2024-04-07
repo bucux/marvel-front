@@ -3,6 +3,7 @@ import cookie from "js-cookie";
 import { useEffect } from "react";
 import { useStoreStr } from "../../stores/storeStr";
 import { Gstr } from "../../libs/global";
+import { getAxios } from "../../libs/axios";
 
 export default function Middle() { // composant invisible, qui se place en middleware pour exécuter des services réactifs
 
@@ -17,13 +18,15 @@ export default function Middle() { // composant invisible, qui se place en middl
     const handshake =  async () => {
       const token = cookie.get('token')
       if(token){ // si un token est présent dans les cookies, vérifier sa validité auprès du serveur
-        // const verified = await postAxios('handshake', {oldToken : token})
-        // if(verified) { // token vérifié
-        // eslint-disable-next-line
-        if(true) { // provisoire : dans l'exercisse, le token est toujours valide
-          setStr('token', token)
-          Gstr.token = token // version non réactive de token, accessible depuis les librairies hors composant
-        } 
+        Gstr.token = token // version non réactive de token, accessible depuis les librairies hors composant // n'influence pas les states des composants
+        const user = await getAxios('user/handshake') // axios ajoutera automatiquement le token dans le bearer
+        if(user) { // token vérifié, afficher l'username à l'écran
+          setStr('token', token) // officialiser le token dans le state réactif
+          setStr('username', user.username)
+        } else { // token frelaté, le supprimer de tous les states ainsi que des cookies
+          Gstr.token = ''
+          cookie.remove('token')
+        }
       }
     }
 

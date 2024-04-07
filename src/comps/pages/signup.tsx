@@ -4,6 +4,8 @@ import './css/signup.css'
 import { useStoreBool } from '../../stores/storeBool'
 import { postAxios } from '../../libs/axios';
 import { useStoreStr } from '../../stores/storeStr';
+import cookie from "js-cookie";
+import { Gstr } from '../../libs/global';
 
 export default function Signup() {
 
@@ -30,9 +32,13 @@ export default function Signup() {
         "newsletter" : newsletter.current!.value,
       }
       const data = await postAxios('user/signup', body)
-      if(data) { 
+      if(data) { // inscription réussie
         setStr('token', data.token)
+        setStr('username', data.username)
         setBool('isSignupOpened', false)
+        Gstr.token = data.token // version non réactive de token, accessible depuis les librairies hors composant
+        cookie.set("token", data.token); // provisoire : il faudra synchroniser l'expiration avec celle du backend
+        // cookie.set("token", data.token, { expires: 1 / 24 }); // expiration du cookie 1 heures (1/24 de jour)
       } 
       else {titre.current!.textContent = "Invalid credential"}
     }else{

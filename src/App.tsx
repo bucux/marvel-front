@@ -10,6 +10,7 @@ import Comic from "./comps/pages/comic";
 import Characters from "./comps/pages/characters";
 import Character from "./comps/pages/character";
 import Favorites from "./comps/pages/favorites";
+import Logout from "./comps/pages/logout";
 
 function App() { // les services (handshake, local storage, variables d'environnemnt) sont assurés par le composant <Middle/> qui est un middleware réactif
   
@@ -31,7 +32,7 @@ function App() { // les services (handshake, local storage, variables d'environn
         <Route path="*" element={<Navigate to="/characters" />} />
       </Routes>
       {isLoginOpened ? <Login/> : null}
-      {isLogoutOpened ? <Login/> : null}
+      {isLogoutOpened ? <Logout/> : null}
       {isSignupOpened ? <Signup/> : null}
     </Router>
   )

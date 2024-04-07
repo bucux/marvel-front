@@ -65,6 +65,23 @@
 
 .header1-cont2 img{
   height: 100px;
+  width: 250px;
+}
+
+.header1-cont21 {
+  height: 100px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--red);
+}
+
+.header1-cont21 p:last-child{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
 }
 
 .header1-cont3{

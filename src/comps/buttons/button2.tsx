@@ -20,7 +20,7 @@ export default function Button2() {
       else{setBool('isLoginOpened', true)}      
     }
   }
-  const mouseEnter = () => { setStr('pageHover', 'login') }
+  const mouseEnter = () => { setStr('pageHover', token ? 'logout' : 'login') }
   const mouseLeave = () => { setStr('pageHover', '') }
 
   return (

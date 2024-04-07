@@ -4,6 +4,7 @@ import { create } from 'zustand'
 
 type TstrStates = { // ce type ne sert qu'ici, et n'a pas besoin d'être exporté
   token: string // token de connexion
+  username: string // le username certifié par le serveur
   searchString: string
   urlServer: string
   page: string // page en cours
@@ -16,6 +17,7 @@ type TstrFuncs = { // ce type ne sert qu'ici, et n'a pas besoin d'être exporté
 
 const etatOrigine: TstrStates = {
   token: "",
+  username: "",
   searchString: "",
   urlServer: "",
   page: "characters",

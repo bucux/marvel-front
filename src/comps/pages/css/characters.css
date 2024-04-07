@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('imgs/background1.webp') no-repeat;
+  background: url('imgs/background1.png') no-repeat;
 }
 
 .characters-cont1{

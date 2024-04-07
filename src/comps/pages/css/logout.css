@@ -1,4 +1,36 @@
 
-.logout-cont0 {
+
+.logout-cont0{
+  height: 150px;
+  width: 300px;
+  background-color: rgba(255,255,255, 0.9);
+  border: solid 2px var(--red);
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 20px;
   z-index: 1000;
+  transition: height 0.2s, width 0.2s;
 }
+
+.logout-cont0:hover{
+  height: 80px;
+  width: 150px;
+}
+
+.logout-cont0 p:first-child{
+  color: var(--red);
+  font-size: 30px;
+}
+
+.logout-cont0 p:last-child{
+  color: var(--red);
+}
+

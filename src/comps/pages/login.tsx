@@ -30,12 +30,13 @@ export default function Login() {
       const data = await postAxios('user/login', body)
       if(data) { // connexion réussie
         setStr('token', data.token)
+        setStr('username', data.username)
         setBool('isLoginOpened', false)
         Gstr.token = data.token // version non réactive de token, accessible depuis les librairies hors composant
         cookie.set("token", data.token); // provisoire : il faudra synchroniser l'expiration avec celle du backend
         // cookie.set("token", data.token, { expires: 1 / 24 }); // expiration du cookie 1 heures (1/24 de jour)
       } 
-      else {titre.current!.textContent = "Longin failed !"}
+      else {titre.current!.textContent = "Login failed !"}
     }else{
       titre.current!.textContent = "INCOMPLETE !"
     }

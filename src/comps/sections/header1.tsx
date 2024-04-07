@@ -20,6 +20,7 @@ export default function Header1() {
   const isLogoutOpened = useStoreBool(state=>state.isLogoutOpened)
   const isSignupOpened = useStoreBool(state=>state.isSignupOpened)
   const [labelPage, setLabelPage] = useState('characters')
+  const username = useStoreStr(state=>state.username)
 
   const change = (e : React.ChangeEvent<HTMLInputElement>) => {
     setStr('searchString', e.target.value)
@@ -56,7 +57,15 @@ export default function Header1() {
         </div>
       </div>
       <div className='header1-cont2'>
-        <img src='imgs/marvel_logo.png' alt="logo marvel" />
+        {username 
+          ? 
+          <div className='header1-cont21'>
+            <p>INTRODUCING THE AMAZING</p>
+            <p>{username.toUpperCase()}</p>
+          </div>
+          : 
+          <img src='imgs/marvel_logo.png' alt="logo marvel" />
+        }        
       </div>
       <div className='header1-cont3'>
         <Button1 name={'characters'}/>
