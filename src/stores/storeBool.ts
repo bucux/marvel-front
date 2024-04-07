@@ -3,6 +3,7 @@ import { create } from 'zustand'
 
 export type tBoolStates = { // ce type sert à l'extérieur, pour vérifier si le nom de la variable est une clé de cet objet
   isLoginOpened: boolean;
+  isLogoutOpened: boolean;
   isSignupOpened: boolean;
   isSearch: boolean,
   isSort: boolean,
@@ -16,6 +17,7 @@ type tBoolFuncs = {
 
 const etatOrigine: tBoolStates = {
   isLoginOpened: false,
+  isLogoutOpened: false,
   isSignupOpened: false,
   isSearch: false,
   isSort: false,

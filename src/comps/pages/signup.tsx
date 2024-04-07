@@ -63,17 +63,17 @@ export default function Signup() {
 
   return (
     <div className='signup-cont0' ref={cont0}>
-      <p ref={titre}>S'inscrire</p>
-      <input placeholder="Nom d'utilisateur" ref={username} onKeyDown={touche}/>
-      <input placeholder='Adresse email' ref={email} onKeyDown={touche}/>
-      <input placeholder='Mot de passe' ref={password} onKeyDown={touche}/>
+      <p ref={titre}>SIGNUP</p>
+      <input placeholder="Code name" ref={username} onKeyDown={touche}/>
+      <input placeholder='Email' ref={email} onKeyDown={touche}/>
+      <input placeholder='Password' ref={password} onKeyDown={touche}/>
       <div className='signup-cont1' ref={newsletter}>
         <input type="checkbox" />
-        <p>S'inscrire à notre newletter</p>
+        <p>SHIELD agent</p>
       </div>
-      <p id="disclamer">En m'inscrivant, je confirme avoir lu et accepté les Termes & Conditions et Politique de Confidentialité Vinted. Je confirme avoir au moins 18 ans.</p>
-      <button onClick={submit}>S'inscrire</button>
-      <p onClick={openLogin}>Tu as déjà un compte ? Connecte-toi !</p>
+      <p id="disclamer">PEGI 13</p>
+      <button onClick={submit}><img src="imgs/red_login.png" alt="logo login" /></button>
+      <p onClick={openLogin}>SIGNIN ?</p>
     </div>
   )
 }

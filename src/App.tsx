@@ -15,6 +15,7 @@ import Favorite from "./comps/pages/favorite";
 function App() {
   
   const isLoginOpened = useStoreBool(state=>state.isLoginOpened)
+  const isLogoutOpened = useStoreBool(state=>state.isLogoutOpened)
   const isSignupOpened = useStoreBool(state=>state.isSignupOpened)
 
   return (
@@ -22,7 +23,6 @@ function App() {
       <Header1/>
       <Middle/> 
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Navigate replace to="/characters" />} />
         <Route path="/comics" element={<Comics />} />
         <Route path="/comic" element={<Comic />} />
@@ -33,6 +33,7 @@ function App() {
         <Route path="*" element={<Navigate to="/characters" />} />
       </Routes>
       {isLoginOpened ? <Login/> : null}
+      {isLogoutOpened ? <Login/> : null}
       {isSignupOpened ? <Signup/> : null}
     </Router>
   )

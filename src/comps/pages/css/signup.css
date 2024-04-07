@@ -4,8 +4,9 @@
 .signup-cont0{
   height: 500px;
   width: 350px;
-  background-color: var(--green);
-  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.9);
+  border: solid 2px var(--red);
+  border-radius: 50%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -15,11 +16,12 @@
   gap: 10px;
   align-items: center;
   justify-content: space-around;
-  padding: 20px;
+  padding: 50px 20px;
+  z-index: 1000;
 }
 
 .signup-cont0 p{
-  color: white;
+  color: var(--red);
 }
 
 .signup-cont0 p:first-child{
@@ -27,18 +29,24 @@
 }
 
 .signup-cont0 input{
-  background-color: var(--green);
+  background-color: var(--red);
   border-style: none;
   border-bottom: solid 1px var(--greytexte);
   color: white;
   padding: 10px;
   font-size: 16px;
   width: 80%;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .signup-cont0 input:focus{
   border: none;
   outline: none;
+}
+
+.signup-cont0 input::placeholder{
+  color: pink;
 }
 
 .signup-cont0 button{
@@ -48,6 +56,10 @@
   border-style: none;
   background-color: white;
   color: var(--green);
+}
+
+.signup-cont0 button img {
+  height: 50px;
 }
 
 .signup-cont1{
@@ -63,7 +75,7 @@
 }
 
 #disclamer{
-  text-align: justify;
+  text-align: center;
   font-size: 12px;
   width: 80%;
 }

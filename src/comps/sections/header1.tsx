@@ -4,8 +4,10 @@ import './css/header1.css'
 import { useStoreStr } from '../../stores/storeStr'
 import Button1 from '../buttons/button1'
 import { useStoreNum } from '../../stores/storeNum'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Slider1 from '../sliders/slider1'
+import Button2 from '../buttons/button2'
+import { useStoreBool } from '../../stores/storeBool'
 
 export default function Header1() {
 
@@ -14,6 +16,10 @@ export default function Header1() {
   const count = useStoreNum(state=>state.count)
   const setStr = useStoreStr(state=>state.setStr)
   const inputSearch = useRef<HTMLInputElement>(null)
+  const isLoginOpened = useStoreBool(state=>state.isLoginOpened)
+  const isLogoutOpened = useStoreBool(state=>state.isLogoutOpened)
+  const isSignupOpened = useStoreBool(state=>state.isSignupOpened)
+  const [labelPage, setLabelPage] = useState('characters')
 
   const change = (e : React.ChangeEvent<HTMLInputElement>) => {
     setStr('searchString', e.target.value)
@@ -26,11 +32,22 @@ export default function Header1() {
     setStr('searchString', '')
   }, [page])
 
+  useEffect(()=>{
+    let label = ''
+    if(pageHover){label = pageHover}
+    else if(isLoginOpened || isLogoutOpened || isSignupOpened){
+      if(isLoginOpened){label = 'login'}
+      if(isLogoutOpened){label = 'logout'}
+      if(isSignupOpened){label = 'signup'}
+    }else{label = page}
+    setLabelPage(label.toLocaleUpperCase())
+  }, [page, pageHover, isLoginOpened, isLogoutOpened, isSignupOpened])
+
   return (
     <div className='header1-cont0'>
       <div className='header1-cont1'>
         <div className='header1-cont11'>
-          <p className={pageHover ? 'white' : ''}>{pageHover ? pageHover.toUpperCase() : page.toUpperCase()}</p>
+          <p className={pageHover ? 'white' : ''}>{labelPage}</p>
           <p className={page==='characters' || page==='comics' ? '' : 'hidden'}>{count}</p>
         </div>
         <div className='header1-cont12'>
@@ -45,7 +62,7 @@ export default function Header1() {
         <Button1 name={'characters'}/>
         <Button1 name={'comics'}/>
         <Button1 name={'favorites'}/>
-        <Button1 name={'login'}/>
+        <Button2/>
       </div>
     </div>
   )

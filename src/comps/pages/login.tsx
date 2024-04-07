@@ -40,7 +40,7 @@ export default function Login() {
       } 
       else {titre.current!.textContent = "Connexion échouée"}
     }else{
-      titre.current!.textContent = "Tous les champs sont requis"
+      titre.current!.textContent = "INCOMPLETE !"
     }
   }
 
@@ -67,11 +67,11 @@ export default function Login() {
 
   return (
     <div className='login-cont0' ref={cont0}>
-      <p ref={titre}>Se connecter</p>
-      <input placeholder='Adresse email' ref={email} onKeyDown={touche}/>
-      <input placeholder='Mot de passe' ref={password} onKeyDown={touche}/>
-      <button onClick={submit}>Se connecter</button>
-      <p onClick={openSignup}>Pas encore de compte ? Inscris-toi !</p>
+      <p ref={titre}>LOGIN</p>
+      <input placeholder='Email' ref={email} onKeyDown={touche}/>
+      <input placeholder='Password' ref={password} onKeyDown={touche}/>
+      <button onClick={submit}><img src="imgs/red_login.png" alt="logo login" /></button>
+      <p onClick={openSignup}>SIGNUP ?</p>
     </div>
   )
 }
