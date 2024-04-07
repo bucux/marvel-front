@@ -1,0 +1,39 @@
+
+
+.character-cont0 {
+  height: 100%;
+  width: 100%;
+  padding-top: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.character-cont1 {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  align-items: center;
+  width: 60%;
+}
+
+.character-cont11 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.character-cont12 {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.character-cont2 p {
+  writing-mode: vertical-rl;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 200px;
+  text-wrap: nowrap;
+}

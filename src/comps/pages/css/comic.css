@@ -1,0 +1,33 @@
+
+
+.comic-cont0 {
+  height: 100%;
+  width: 100%;
+  padding-top: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.comic-cont1 {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  align-items: center;
+  width: 60%;
+}
+
+.comic-cont11 {
+  font-size: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.comic-cont2 p {
+  writing-mode: vertical-rl;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 200px;
+  text-wrap: nowrap;
+}

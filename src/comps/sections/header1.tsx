@@ -51,7 +51,7 @@ export default function Header1() {
           <p className={pageHover ? 'white' : ''}>{labelPage}</p>
           <p className={page==='characters' || page==='comics' ? '' : 'hidden'}>{count}</p>
         </div>
-        <div className='header1-cont12'>
+        <div className={`header1-cont12 ${page === 'characters' || page === 'comics' ? '' : 'hidden'}`}>
           <input onChange={change} placeholder={'Choose a ' + page.toLowerCase().slice(0, page.length-1)} ref={inputSearch}/>
           <Slider1 max={Math.floor(count/100) + (count % 100 > 0 ? 1 : 0)}/>
         </div>

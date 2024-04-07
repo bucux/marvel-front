@@ -4,6 +4,7 @@ import './css/character.css'
 import { useStoreObj } from '../../stores/storeObj'
 import { useEffect } from 'react'
 import { useStoreStr } from '../../stores/storeStr'
+import Article3 from '../sections/article3'
 
 export default function Character() {
 
@@ -17,15 +18,20 @@ export default function Character() {
   if(character){
     return (
       <main className='character-cont0'>
-        <p>{character.name}</p>
-        <p>{character.description}</p>
-        <p>{character.__v}</p>
-        <p>{character._id}</p>
-        <p>{character.thumbnail.extention}</p>
-        <div>
-          {character.comics.map((comicId, index)=><p key={index}>{comicId}</p>)}
+        <div className='character-cont1'>
+          <div className='character-cont11'>
+            <p>{character.name}</p>
+            <p>{character.description}</p>
+            <img src={character.thumbnail.path + '/portrait_uncanny.jpg'} alt={'image du character' + character.name} />
+          </div>
+          <p>...in his thrilling adventures :</p>
+          <div className='character-cont12'>
+            {character.comics.map((idComic, index)=><Article3 key={index} idComic={idComic}/>)}
+          </div>
         </div>
-        <img src={character.thumbnail.path + '/portrait_xlarge.jpg'} alt={'image du character' + character.name} />
+        <div className='character-cont2'>
+          <p>MINIMUM SYNDICAL PAS FRANCHEMENT LE TEMPS DE FIGNOLER - MERCI D'AVOIR LU</p>
+        </div>
       </main>
     )
   } else {return null}
