@@ -38,12 +38,11 @@ export default function Comic() {
             <p>{'Powerful'.toUpperCase()}</p>
             <p>{'Fearless'.toUpperCase()}</p>
             <p>{'Dynamic'.toUpperCase()}</p>
-            <p>{'Spectacular'.toUpperCase()}</p>
-            <p>{'Spectacular'.toUpperCase()}</p>
+            <p>{'Crack nuts between his buttocks'.toUpperCase()}</p>
           </div>
         </div>
         <div className='comic-cont2'>
-          <p>MINIMUM SYNDICAL PAS FRANCHEMENT LE TEMPS DE FIGNOLER - MERCI D'AVOIR LU</p>
+          <p>IL FAUT IMAGINER UN SCROLLING AVEC PARALAXES ET CONFETTIS</p>
         </div>
       </main>
     )

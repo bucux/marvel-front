@@ -4,10 +4,12 @@ import { useEffect } from "react";
 import { useStoreStr } from "../../stores/storeStr";
 import { Gstr } from "../../libs/global";
 import { getAxios } from "../../libs/axios";
+import { useStoreTable } from "../../stores/storeTable";
 
 export default function Middle() { // composant invisible, qui se place en middleware pour exécuter des services réactifs
 
   const setStr = useStoreStr(state=>state.setStr)
+  const setTable = useStoreTable(state=>state.setTable)
 
   useEffect(()=>{
 
@@ -23,6 +25,8 @@ export default function Middle() { // composant invisible, qui se place en middl
         if(user) { // token vérifié, afficher l'username à l'écran
           setStr('token', token) // officialiser le token dans le state réactif
           setStr('username', user.username)
+          setTable('idComics', user.idComics)
+          setTable('idHeros', user.idHeros)
         } else { // token frelaté, le supprimer de tous les states ainsi que des cookies
           Gstr.token = ''
           cookie.remove('token')

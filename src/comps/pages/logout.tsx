@@ -5,6 +5,7 @@ import { useStoreBool } from '../../stores/storeBool'
 import { useStoreStr } from '../../stores/storeStr';
 import cookie from "js-cookie";
 import { Gstr } from '../../libs/global';
+import { useStoreTable } from '../../stores/storeTable';
 
 export default function Logout() {
 
@@ -12,10 +13,14 @@ export default function Logout() {
   const titre = useRef<HTMLParagraphElement>(null);
   const setBool = useStoreBool(state=>state.setBool)
   const setStr = useStoreStr(state=>state.setStr)
+  const setTable = useStoreTable(state=>state.setTable)
 
   const clic = () => { // deconnexion
     setStr('token', '')
     setStr('username', '')
+    setTable('idHeros', [])
+    setTable('idComics', [])
+    setBool('isLoginOpened', false)
     Gstr.token = ''
     cookie.remove("token"); 
     setBool('isLogoutOpened', false)
@@ -39,8 +44,8 @@ export default function Logout() {
   }, [])
 
   return (
-    <div className='logout-cont0' ref={cont0}>
-      <p ref={titre} onClick={clic}>VANISH ?</p>
+    <div className='logout-cont0' onClick={clic} ref={cont0}>
+      <p ref={titre}>VANISH ?</p>
       <p>click me, if you can !</p>
     </div>
   )

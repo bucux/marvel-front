@@ -6,6 +6,7 @@ import { postAxios } from '../../libs/axios';
 import { useStoreStr } from '../../stores/storeStr';
 import cookie from "js-cookie";
 import { Gstr } from '../../libs/global';
+import { useStoreTable } from '../../stores/storeTable';
 
 export default function Login() {
 
@@ -15,6 +16,7 @@ export default function Login() {
   const titre = useRef<HTMLParagraphElement>(null);
   const setBool = useStoreBool(state=>state.setBool)
   const setStr = useStoreStr(state=>state.setStr)
+  const setTable = useStoreTable(state=>state.setTable)
   
   const openSignup = () => { // ouvre la modale signup et ferme la modale login
     setBool('isSignupOpened', true)
@@ -27,14 +29,16 @@ export default function Login() {
         "email" : email.current!.value,
         "password" : password.current!.value,
       }
-      const data = await postAxios('user/login', body)
-      if(data) { // connexion réussie
-        setStr('token', data.token)
-        setStr('username', data.username)
+      const user = await postAxios('user/login', body)
+      if(user) { // connexion réussie
+        setStr('token', user.token)
+        setStr('username', user.username)
+        setTable('idComics', user.idComics)
+        setTable('idHeros', user.idHeros)
         setBool('isLoginOpened', false)
-        Gstr.token = data.token // version non réactive de token, accessible depuis les librairies hors composant
-        cookie.set("token", data.token); // provisoire : il faudra synchroniser l'expiration avec celle du backend
-        // cookie.set("token", data.token, { expires: 1 / 24 }); // expiration du cookie 1 heures (1/24 de jour)
+        Gstr.token = user.token // version non réactive de token, accessible depuis les librairies hors composant
+        cookie.set("token", user.token); // provisoire : il faudra synchroniser l'expiration avec celle du backend
+        // cookie.set("token", user.token, { expires: 1 / 24 }); // expiration du cookie 1 heures (1/24 de jour)
       } 
       else {titre.current!.textContent = "Login failed !"}
     }else{

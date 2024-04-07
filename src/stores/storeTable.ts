@@ -3,8 +3,8 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
 type tTableStates = {
-  tab1: number[],
-  tab2: {nom: string, age: number}[];
+  idHeros: string[] // liste des id des héros favoris
+  idComics: string[] // liste des id des comics favoris
 };
 
 type TobjFuncs = {
@@ -12,8 +12,8 @@ type TobjFuncs = {
 };
 
 const etatOrigine: tTableStates = {
-  tab1: [1, 2, 3],
-  tab2: [{nom: 'jean', age: 8}],
+  idHeros: [],
+  idComics: []
 };
 
 export const useStoreTable = create<tTableStates & TobjFuncs>()(

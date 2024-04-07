@@ -40,4 +40,14 @@ export type Tthumbnail = {
   extention: string
 };
 
+//////////////////////////////////////////////////////hors niveau
 
+export type Tuser = {
+  email: string,
+  username: string,
+  token: string,
+  hash: string, // toujours vide sur le front
+  salt: string, // toujours vide sur le front
+  idHeros: string[],
+  idComics: string[]
+}

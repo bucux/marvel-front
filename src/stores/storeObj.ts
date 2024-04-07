@@ -2,14 +2,14 @@
 
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import { Tcharacter, Tcharacters, Tcomic, Tcomics } from '../libs/types';
+import { Tcharacter, Tcharacters, Tcomic, Tcomics, Tuser } from '../libs/types';
 
 export type TobjStates = {
-  monObj2: { nom: string; age: number };
   comics: Tcomics | null // les comics de la pagination
   characters: Tcharacters | null // les characters de la pagination
   comic: Tcomic | null // le comic en cours de consultation
   character: Tcharacter | null // le character en cours de consultation
+  user: Tuser | null // les données complète de l'user, sans les secrets (hash et salt)
 };
 
 type TobjFuncs = {
@@ -21,7 +21,7 @@ const etatOrigine: TobjStates = {
   characters: null,
   comic: null, 
   character: null,
-  monObj2: { nom: 'macron', age: 48 },
+  user: null
 };
 
 export const useStoreObj = create<TobjStates & TobjFuncs>()(
