@@ -23,13 +23,13 @@ export default function Article3bis({idCharacter} : {idCharacter : string}) {
 
   useEffect(()=>{
     
-    const fetchComic = async () => {
+    const fetchCharacter = async () => {
       const suffixe = 'character/' + idCharacter 
       const datas = await getAxios(suffixe)
       if(datas){ setCharacter(datas)}
     }
 
-    fetchComic() 
+    if(idCharacter){fetchCharacter() }
 
   }, [])
 

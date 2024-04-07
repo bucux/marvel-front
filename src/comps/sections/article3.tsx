@@ -32,7 +32,9 @@ export default function Article3({idComic} : {idComic : string}) { // sert dans 
       if(datas){ setComic(datas)}
     }
 
-    fetchComic() 
+    if(idComic){
+      fetchComic() 
+    }
 
   }, [])
 

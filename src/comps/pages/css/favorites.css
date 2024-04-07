@@ -1,0 +1,22 @@
+
+
+.favorite-cont0{
+  height: 100%;
+  width: 100%;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorite-cont1{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.favorite-cont2{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

@@ -42,6 +42,10 @@ export default function Article2({character, addLesser} : {character : Tcharacte
     setIsFav(idHeros.indexOf(character._id) > -1) 
   }, [idHeros])
 
+  useEffect(()=>{ // met à jour isHeart en fonction de isFav
+    setIsHeart(isFav) 
+  }, [isFav])
+
   if(!isError){
     return (
       <div className='article2-cont0' onMouseEnter={hover0} onMouseLeave={leave0}>
